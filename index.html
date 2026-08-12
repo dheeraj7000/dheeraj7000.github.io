@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dheeraj Kumar — ML Research Engineer</title>
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --text-secondary: #555;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --border: #e5e7eb;
+            --bg: #ffffff;
+            --bg-card: #f9fafb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        header {
+            margin-bottom: 56px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.9rem;
+        }
+
+        .links a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .links a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        section {
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .about p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .project {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            background: var(--bg-card);
+            transition: box-shadow 0.2s;
+        }
+
+        .project:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .project h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .project h3 a {
+            color: var(--text);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .project h3 a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .project .tech {
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-family: 'Menlo', 'Consolas', monospace;
+        }
+
+        .project p {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+        }
+
+        .publications {
+            list-style: none;
+        }
+
+        .publications li {
+            margin-bottom: 14px;
+            padding-left: 16px;
+            border-left: 2px solid var(--border);
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        .publications li a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .publications li a:hover {
+            text-decoration: underline;
+        }
+
+        .publication-title {
+            color: var(--text);
+            font-style: italic;
+        }
+
+        .oss {
+            border-left: 2px solid var(--accent);
+            padding-left: 16px;
+            margin-bottom: 16px;
+        }
+
+        .oss h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .oss h3 a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .oss h3 a:hover {
+            color: var(--accent);
+        }
+
+        .oss p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 48px 20px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            .links {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dheeraj Kumar</h1>
+            <p class="subtitle">ML Research Engineer · Agentic Systems · MS CS @ Arizona State University</p>
+            <div class="links">
+                <a href="mailto:dkumar70@asu.edu">Email</a>
+                <a href="https://linkedin.com/in/dheeraj-k-232a6a235" target="_blank">LinkedIn</a>
+                <a href="https://github.com/dheeraj7000" target="_blank">GitHub</a>
+                <a href="https://arxiv.org/abs/2606.03115" target="_blank">arXiv</a>
+            </div>
+        </header>
+
+        <section class="about">
+            <h2>About</h2>
+            <p>
+                I build agentic AI systems and ML pipelines — graph neural networks, LLM agent architectures, 
+                multi-agent orchestration, evaluation harnesses, and AI security. Currently an M.S. Computer Science 
+                candidate at ASU (Dec 2026) and a published researcher on arXiv, with merged contributions to 
+                open-source agent-skill infrastructure.
+            </p>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+
+            <div class="project">
+                <h3><a href="https://github.com/dheeraj7000/experience-engine" target="_blank">Experience Engine</a></h3>
+                <div class="tech">Python · LLM APIs · Continual Learning</div>
+                <p>
+                    Continual-learning layer that turns agent trajectories into validated, reusable competence — 
+                    not just retrievable memory. Implements a typed experience → skill → policy promotion ladder 
+                    with validation-gated promotion, causal failure diagnosis, and adversarial safety gates. 
+                    Benchmarked against stateless and memory-only baselines on execution-graded QA tasks.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3><a href="https://github.com/dheeraj7000/control-plane" target="_blank">Control Plane</a></h3>
+                <div class="tech">Go · MCP · Agent Orchestration</div>
+                <p>
+                    Open-source AI agent control plane for managing, securing, observing, and orchestrating 
+                    AI agents across MCP and non-MCP providers.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3><a href="https://github.com/dheeraj7000/dynamic-steering-sycophancy" target="_blank">Dynamic Steering — Sycophancy</a></h3>
+                <div class="tech">Python · LLM Evaluation · Behavioral Analysis</div>
+                <p>
+                    Research into dynamic steering mechanisms for measuring and mitigating sycophantic behavior 
+                    in large language models.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3><a href="https://github.com/dheeraj7000/skills" target="_blank">Skills</a></h3>
+                <div class="tech">Python · Agent Infrastructure</div>
+                <p>
+                    Agent skill infrastructure — tooling for defining, validating, and deploying reusable 
+                    competence modules for LLM agents.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3><a href="https://github.com/dheeraj7000/anyapi" target="_blank">AnyAPI</a></h3>
+                <div class="tech">Python · Browser Automation · API Server</div>
+                <p>
+                    Self-hosted AI API server providing free access to 9 model providers via browser automation. 
+                    Build chatbots, CLIs, and agents without API keys.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3><a href="https://github.com/dheeraj7000/AutoDB-Self-Optimizing-Database-System" target="_blank">AutoDB</a></h3>
+                <div class="tech">Python · ML · Database Optimization</div>
+                <p>
+                    Self-optimizing database system that uses machine learning to automatically tune 
+                    performance parameters and query execution strategies.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Open Source</h2>
+            <div class="oss">
+                <h3><a href="https://github.com/zjunlp/SkillNet/pull/33" target="_blank">SkillNet — ZJUNLP / Zhejiang University NLP Lab</a></h3>
+                <p>
+                    Identified and fixed a prompt-injection vulnerability in the LLM-as-judge skill evaluation gate. 
+                    Contributed a static pre-screen module (11 detection rules), nonce-fenced prompt sections, 
+                    and safety-rubric extensions with 26 tests. Merged PR #33.
+                </p>
+            </div>
+            <div class="oss">
+                <h3><a href="https://github.com/gleanwork/remote-mcp-server/pull/9" target="_blank">Glean Remote MCP Server</a></h3>
+                <p>
+                    Dual-layer cache with OAuth-partitioned keys and context window optimization 
+                    for the Glean remote MCP server.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Publications</h2>
+            <ul class="publications">
+                <li>
+                    Carbowitz, R., Kumar, D. 
+                    <span class="publication-title">"SPOQ: Specialist Orchestrated Queuing for Multi-Agent Software Engineering."</span> 
+                    <a href="https://arxiv.org/abs/2606.03115">arXiv:2606.03115</a> (2026)
+                </li>
+                <li>
+                    Kumar, D., Rana, V. 
+                    <span class="publication-title">"Ontology Engineering for Trustworthy AI: A Production-Grounded Survey of Knowledge Graphs in the LLM Era."</span> 
+                    <a href="https://doi.org/10.13140/RG.2.2.29422.16965">DOI: 10.13140/RG.2.2.29422.16965</a>
+                </li>
+                <li>
+                    Kumar, D. 
+                    <span class="publication-title">"GCAF-Net: Gated Cross-Attention Fusion for Efficient Robotic Vision-Language Reasoning."</span> 
+                    <a href="https://doi.org/10.13140/RG.2.2.12906.38089">DOI: 10.13140/RG.2.2.12906.38089</a>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            Dheeraj Kumar · Tempe, AZ · 2026
+        </footer>
+    </div>
+</body>
+</html>
