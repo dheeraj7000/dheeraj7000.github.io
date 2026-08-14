@@ -6,22 +6,24 @@
     <title>Dheeraj Kumar — ML Research Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --text: #111827;
-            --text-secondary: #4b5563;
-            --text-muted: #6b7280;
-            --accent: #2563eb;
-            --accent-light: #dbeafe;
-            --accent-hover: #1d4ed8;
-            --border: #e5e7eb;
-            --bg: #ffffff;
-            --bg-card: #f8fafc;
-            --bg-hero: linear-gradient(135deg, #f0f4ff 0%, #faf5ff 50%, #f0fdf4 100%);
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
-            --shadow-lg: 0 8px 30px rgba(0,0,0,0.08);
+            --text: #e8ecf5;
+            --text-secondary: #97a3bf;
+            --text-muted: #667089;
+            --accent: #3aa8ff;
+            --accent-glow: #57c7ff;
+            --accent-light: rgba(58, 168, 255, 0.1);
+            --accent-hover: #6fd3ff;
+            --border: rgba(122, 155, 210, 0.16);
+            --bg: #05070d;
+            --bg-card: #0a0e18;
+            --bg-hero: radial-gradient(ellipse 900px 500px at 50% -10%, rgba(58, 168, 255, 0.16), transparent 65%), #05070d;
+            --shadow-sm: 0 0 0 1px rgba(58,168,255,0.05);
+            --shadow-md: 0 6px 24px rgba(0,0,0,0.5), 0 0 20px rgba(58,168,255,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.6), 0 0 30px rgba(58,168,255,0.12);
+            --glow: 0 0 12px rgba(58,168,255,0.55), 0 0 30px rgba(58,168,255,0.18);
             --radius: 12px;
         }
 
@@ -61,23 +63,26 @@
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             background: var(--accent-light);
-            color: var(--accent);
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding: 4px 12px;
+            color: var(--accent-glow);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 5px 14px;
             border-radius: 20px;
-            margin-bottom: 16px;
-            letter-spacing: 0.3px;
+            margin-bottom: 20px;
+            letter-spacing: 0.4px;
+            border: 1px solid rgba(58,168,255,0.3);
         }
 
         .hero-badge::before {
             content: "";
             width: 6px;
             height: 6px;
-            background: var(--accent);
+            background: var(--accent-glow);
             border-radius: 50%;
+            box-shadow: var(--glow);
             animation: pulse 2s infinite;
         }
 
@@ -93,6 +98,7 @@
             letter-spacing: -1px;
             margin-bottom: 10px;
             color: var(--text);
+            text-shadow: 0 0 30px rgba(58,168,255,0.25);
         }
 
         .subtitle {
@@ -124,11 +130,11 @@
         }
 
         .links a:hover {
-            color: var(--accent);
+            color: var(--accent-glow);
             border-color: var(--accent);
             background: var(--accent-light);
             transform: translateY(-1px);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--glow);
         }
 
         .links a svg {
@@ -199,7 +205,7 @@
         }
 
         .project:hover {
-            border-color: #d1d5db;
+            border-color: rgba(58,168,255,0.4);
             box-shadow: var(--shadow-md);
             transform: translateY(-2px);
         }
@@ -341,8 +347,9 @@
             display: inline-block;
             font-size: 0.7rem;
             font-weight: 600;
-            color: #059669;
-            background: #d1fae5;
+            color: var(--accent-glow);
+            background: var(--accent-light);
+            border: 1px solid rgba(58,168,255,0.3);
             padding: 2px 8px;
             border-radius: 4px;
             margin-left: 8px;
