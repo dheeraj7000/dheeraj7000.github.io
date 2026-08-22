@@ -4,11 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0b0e14">
-    <meta name="description" content="Dheeraj Kumar — ML Research Engineer working on agentic systems, LLM orchestration, and AI security.">
     <title>Dheeraj Kumar — ML Research Engineer</title>
+    <meta name="description" content="Dheeraj Kumar — ML Research Engineer working on agentic systems, LLM orchestration, knowledge graphs, and AI security. MS CS @ Arizona State University.">
+    <meta name="author" content="Dheeraj Kumar">
+    <link rel="canonical" href="https://dheeraj7000.github.io/">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://dheeraj7000.github.io/">
+    <meta property="og:title" content="Dheeraj Kumar — ML Research Engineer">
+    <meta property="og:description" content="Agentic systems, LLM orchestration, knowledge graphs, and AI security. Selected work, open-source contributions, and publications.">
+    <meta property="og:site_name" content="Dheeraj Kumar">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Dheeraj Kumar — ML Research Engineer">
+    <meta name="twitter:description" content="Agentic systems, LLM orchestration, knowledge graphs, and AI security.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230b0e14'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' text-anchor='middle' fill='%237c9cff'%3EDK%3C/text%3E%3C/svg%3E">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Martian+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dheeraj Kumar",
+      "url": "https://dheeraj7000.github.io/",
+      "jobTitle": "ML Research Engineer",
+      "email": "mailto:dkumar70@asu.edu",
+      "address": { "@type": "PostalAddress", "addressLocality": "Tempe", "addressRegion": "AZ", "addressCountry": "US" },
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Arizona State University" },
+      "knowsAbout": ["Agentic AI systems", "LLM orchestration", "Graph neural networks", "Retrieval-augmented generation", "Knowledge graphs", "AI security"],
+      "sameAs": [
+        "https://github.com/dheeraj7000",
+        "https://linkedin.com/in/dheeraj-k-232a6a235"
+      ]
+    }
+    </script>
+
     <style>
         :root {
             --hue: 241;
@@ -22,13 +55,15 @@
 
             --text: oklch(95% 0.006 var(--hue));
             --text-secondary: oklch(75% 0.015 var(--hue));
-            --text-muted: oklch(53% 0.016 var(--hue));
+            --text-muted: oklch(60% 0.016 var(--hue));
 
             --accent: oklch(68% 0.15 var(--hue));
-            --accent-strong: oklch(78% 0.12 var(--hue));
-            --accent-wash: oklch(68% 0.15 var(--hue) / 0.08);
-            --accent-wash-strong: oklch(68% 0.15 var(--hue) / 0.16);
+            --accent-strong: oklch(80% 0.12 var(--hue));
+            --accent-wash: oklch(68% 0.15 var(--hue) / 0.07);
             --accent-line: oklch(68% 0.15 var(--hue) / 0.4);
+
+            --live: oklch(76% 0.16 158);
+            --live-wash: oklch(76% 0.16 158 / 0.14);
 
             --grid-line: oklch(68% 0.15 var(--hue) / 0.05);
 
@@ -52,15 +87,9 @@
             --rail-width: 208px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
@@ -80,9 +109,34 @@
                 var(--bg);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         a { color: inherit; }
+
+        :focus-visible {
+            outline: 2px solid var(--accent-strong);
+            outline-offset: 3px;
+            border-radius: 1px;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: var(--space-md);
+            top: 0;
+            transform: translateY(-140%);
+            z-index: 50;
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: var(--space-xs) var(--space-md);
+            text-decoration: none;
+            transition: transform 0.2s var(--ease-out-expo);
+        }
+
+        .skip-link:focus { transform: translateY(var(--space-sm)); }
 
         /* Layout shell */
         .layout {
@@ -145,23 +199,10 @@
             transition: color 0.2s var(--ease-out-expo);
         }
 
-        .rail a .idx {
-            color: var(--text-muted);
-            opacity: 0.6;
-        }
-
-        .rail a:hover {
-            color: var(--text-secondary);
-        }
-
-        .rail a.is-active {
-            color: var(--accent-strong);
-        }
-
-        .rail a.is-active .idx {
-            color: var(--accent);
-            opacity: 1;
-        }
+        .rail a .idx { color: var(--text-muted); opacity: 0.6; }
+        .rail a:hover { color: var(--text-secondary); }
+        .rail a[aria-current="true"] { color: var(--accent-strong); }
+        .rail a[aria-current="true"] .idx { color: var(--accent); opacity: 1; }
 
         /* Entrance motion */
         @keyframes rise {
@@ -169,18 +210,14 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .rise {
-            animation: rise 0.7s var(--ease-out-expo) both;
-        }
+        .rise { animation: rise 0.7s var(--ease-out-expo) both; }
 
         /* Hero */
-        .hero {
-            padding: var(--space-4xl) 0 var(--space-3xl);
-        }
+        .hero { padding: var(--space-4xl) 0 var(--space-3xl); }
 
         .status {
             display: inline-flex;
-            align-items: center;
+            align-items: flex-start;
             gap: var(--space-xs);
             font-family: var(--font-mono);
             font-size: 0.72rem;
@@ -195,6 +232,8 @@
         .status .dot {
             width: 6px;
             height: 6px;
+            margin-top: 0.5em;
+            flex-shrink: 0;
             background: var(--accent);
             box-shadow: 0 0 0 3px var(--accent-wash);
             animation: pulse 2.4s infinite;
@@ -218,7 +257,7 @@
             font-size: 1.05rem;
             color: var(--text-secondary);
             margin-bottom: var(--space-xl);
-            max-width: 46ch;
+            max-width: 56ch;
             animation-delay: 0.14s;
         }
 
@@ -243,21 +282,11 @@
             transition: color 0.2s var(--ease-out-expo), border-color 0.2s var(--ease-out-expo);
         }
 
-        .links a:hover {
-            color: var(--accent-strong);
-            border-bottom-color: var(--accent-line);
-        }
-
-        .links a svg {
-            width: 14px;
-            height: 14px;
-            opacity: 0.85;
-        }
+        .links a:hover { color: var(--accent-strong); border-bottom-color: var(--accent-line); }
+        .links a svg { width: 14px; height: 14px; opacity: 0.85; }
 
         /* Main content */
-        main {
-            padding-bottom: var(--space-4xl);
-        }
+        main { padding-bottom: var(--space-4xl); }
 
         section {
             padding: var(--space-3xl) 0;
@@ -265,9 +294,7 @@
             scroll-margin-top: 96px;
         }
 
-        section:first-of-type {
-            border-top: none;
-        }
+        section:first-of-type { border-top: none; }
 
         .section-head {
             display: flex;
@@ -283,11 +310,16 @@
             letter-spacing: 0.08em;
         }
 
-        h2 {
-            font-size: var(--text-h2);
-            font-weight: 700;
-            letter-spacing: -0.01em;
+        .section-head .count {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-left: auto;
+            text-transform: uppercase;
         }
+
+        h2 { font-size: var(--text-h2); font-weight: 700; letter-spacing: -0.01em; }
 
         .about p {
             color: var(--text-secondary);
@@ -296,10 +328,34 @@
             max-width: 68ch;
         }
 
-        /* Manifest list (projects / oss / publications share this pattern) */
-        .manifest {
-            list-style: none;
+        .about p + p { margin-top: var(--space-md); }
+
+        /* Focus areas readout */
+        .readout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: var(--space-md) var(--space-xl);
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border-soft);
+            max-width: 68ch;
         }
+
+        .readout div { min-width: 0; }
+
+        .readout dt {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: var(--space-2xs);
+        }
+
+        .readout dd { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; }
+
+        /* Manifest list (projects / oss / publications share this pattern) */
+        .manifest { list-style: none; }
 
         .entry {
             display: grid;
@@ -310,9 +366,7 @@
             transition: background 0.25s var(--ease-out-expo);
         }
 
-        .manifest > .entry:first-child {
-            border-top: none;
-        }
+        .manifest > .entry:first-child { border-top: none; }
 
         .entry:hover {
             background: var(--accent-wash);
@@ -333,37 +387,24 @@
         .entry-title {
             display: flex;
             align-items: baseline;
-            justify-content: space-between;
-            gap: var(--space-md);
+            flex-wrap: wrap;
+            gap: var(--space-xs) var(--space-sm);
             margin-bottom: 6px;
         }
 
-        .entry-title h3 {
-            font-size: 1rem;
-            font-weight: 600;
-        }
+        .entry-title h3 { font-size: 1rem; font-weight: 600; }
 
-        .entry-title h3 a {
-            text-decoration: none;
-            transition: color 0.2s var(--ease-out-expo);
-        }
-
-        .entry-title h3 a:hover {
-            color: var(--accent-strong);
-        }
-
-        .entry .arrow {
-            color: var(--text-muted);
+        .entry-title .meta {
+            margin-left: auto;
             font-family: var(--font-mono);
-            font-size: 0.85rem;
-            transition: transform 0.2s var(--ease-out-expo), color 0.2s var(--ease-out-expo);
-            flex-shrink: 0;
+            font-size: 0.62rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            white-space: nowrap;
         }
 
-        .entry:hover .arrow {
-            color: var(--accent);
-            transform: translate(2px, -2px);
-        }
+        .entry-title .meta .on { color: var(--live); }
 
         .tech {
             font-family: var(--font-mono);
@@ -378,39 +419,64 @@
             color: var(--text-secondary);
             font-size: 0.92rem;
             line-height: 1.65;
-            max-width: 62ch;
+            max-width: 64ch;
         }
 
-        .tag {
-            display: inline-block;
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            letter-spacing: 0.05em;
-            color: var(--accent-strong);
-            border: 1px solid var(--border);
-            padding: 1px 7px;
-            margin-left: var(--space-sm);
-            vertical-align: middle;
-            text-transform: uppercase;
+        /* Link chips on an entry */
+        .entry-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm) var(--space-md);
+            margin-top: var(--space-sm);
         }
+
+        .lnk {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-muted);
+            padding-bottom: 2px;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s var(--ease-out-expo), border-color 0.2s var(--ease-out-expo);
+        }
+
+        .lnk .ext { transition: transform 0.2s var(--ease-out-expo); }
+        .lnk:hover { color: var(--accent-strong); border-bottom-color: var(--accent-line); }
+        .lnk:hover .ext { transform: translate(2px, -2px); }
+
+        .lnk-live { color: var(--live); }
+        .lnk-live:hover { color: var(--live); border-bottom-color: var(--live-wash); }
+
+        .lnk-live .live-dot {
+            width: 5px;
+            height: 5px;
+            background: var(--live);
+            box-shadow: 0 0 0 3px var(--live-wash);
+            animation: pulse 2.4s infinite;
+            flex-shrink: 0;
+        }
+
+        .entry p code {
+            font-family: var(--font-mono);
+            font-size: 0.82em;
+            color: var(--accent-strong);
+            background: var(--accent-wash);
+            border: 1px solid var(--border-soft);
+            padding: 0 4px;
+        }
+
+        .pub-title { color: var(--text); font-size: 0.95rem; margin-bottom: 4px; }
 
         .pub-authors {
             display: block;
             font-size: 0.82rem;
             color: var(--text-muted);
             margin-bottom: var(--space-xs);
-        }
-
-        .pub-link {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent-line);
-        }
-
-        .pub-link:hover {
-            color: var(--accent-strong);
         }
 
         /* Footer */
@@ -437,226 +503,349 @@
             transition: color 0.2s var(--ease-out-expo), border-color 0.2s var(--ease-out-expo);
         }
 
-        footer a:hover {
-            color: var(--accent-strong);
-            border-bottom-color: var(--accent-line);
-        }
-
-        footer .footer-links {
-            display: flex;
-            gap: var(--space-lg);
-        }
+        footer a:hover { color: var(--accent-strong); border-bottom-color: var(--accent-line); }
+        footer .footer-links { display: flex; flex-wrap: wrap; gap: var(--space-lg); }
 
         /* Responsive */
         @media (max-width: 600px) {
+            .layout { padding: 0 var(--space-lg); }
+            .rail { margin: 0 calc(var(--space-lg) * -1); padding: var(--space-md) var(--space-lg); }
             .hero { padding: var(--space-2xl) 0 var(--space-xl); }
             .entry { grid-template-columns: 1.6rem 1fr; gap: var(--space-md); }
             .entry:hover { margin: 0 calc(var(--space-md) * -1); padding-left: var(--space-md); padding-right: var(--space-md); }
+            .section-head { flex-wrap: wrap; }
+            .section-head .count { margin-left: 0; flex-basis: 100%; }
             footer .footer-row { flex-direction: column; }
+        }
+
+        /* Print */
+        @media print {
+            body { background: #fff; color: #000; }
+            .rail, .skip-link, .status .dot, .live-dot { display: none; }
+            .layout { display: block; max-width: none; padding: 0; }
+            .entry, section { break-inside: avoid; border-color: #ccc; }
+            .tech, .lnk, .section-head .num, footer { color: #444; }
+            a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.7em; word-break: break-all; }
         }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#about">Skip to content</a>
     <div class="layout">
         <nav class="rail" aria-label="Section index">
             <a href="#about"><span class="idx">01</span>About</a>
-            <a href="#projects"><span class="idx">02</span>Projects</a>
+            <a href="#projects"><span class="idx">02</span>Selected&nbsp;Work</a>
             <a href="#open-source"><span class="idx">03</span>Open&nbsp;Source</a>
             <a href="#publications"><span class="idx">04</span>Publications</a>
         </nav>
 
         <div>
-            <div class="hero">
-                <p class="status rise"><span class="dot"></span>Open to opportunities</p>
+            <header class="hero">
+                <p class="status rise"><span class="dot"></span>Open to opportunities · Summer/Full-time 2026</p>
                 <h1 class="rise">Dheeraj Kumar</h1>
                 <p class="subtitle rise">ML Research Engineer · Agentic Systems · MS CS @ Arizona State University</p>
                 <div class="links rise">
                     <a href="mailto:dkumar70@asu.edu">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                         Email
                     </a>
-                    <a href="https://linkedin.com/in/dheeraj-k-232a6a235" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                    <a href="https://linkedin.com/in/dheeraj-k-232a6a235" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                         LinkedIn
                     </a>
-                    <a href="https://github.com/dheeraj7000" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                    <a href="https://github.com/dheeraj7000" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
                         GitHub
                     </a>
-                    <a href="https://arxiv.org/abs/2606.03115" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                    <a href="https://arxiv.org/abs/2606.03115" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                         arXiv
                     </a>
                 </div>
-            </div>
+            </header>
 
             <main>
                 <section id="about" class="about">
                     <div class="section-head"><span class="num">01</span><h2>About</h2></div>
                     <p>
-                        I build agentic AI systems and ML pipelines — graph neural networks, LLM agent architectures,
-                        multi-agent orchestration, evaluation harnesses, and AI security. Currently an M.S. Computer Science
-                        candidate at ASU (Dec 2026) and a published researcher on arXiv, with merged contributions to
-                        open-source agent-skill infrastructure.
+                        I build agentic AI systems and the infrastructure that keeps them honest — graph neural networks,
+                        LLM agent architectures, multi-agent orchestration, evaluation harnesses, and AI security.
+                        Most of my work sits at the seam between a model and a production system: policy layers, provenance,
+                        trust scoring, and evaluation gates.
                     </p>
+                    <p>
+                        Currently an M.S. Computer Science candidate at Arizona State University (Dec 2026), with papers on
+                        arXiv and ResearchGate and merged security contributions to open-source agent infrastructure.
+                    </p>
+                    <dl class="readout">
+                        <div>
+                            <dt>Focus</dt>
+                            <dd>Agentic systems, LLM orchestration, RAG &amp; knowledge graphs, AI security</dd>
+                        </div>
+                        <div>
+                            <dt>Languages</dt>
+                            <dd>Python, Go, TypeScript, SQL</dd>
+                        </div>
+                        <div>
+                            <dt>Stack</dt>
+                            <dd>PyTorch, PyTorch Geometric, FastAPI, MCP, Playwright, Postgres, Docker</dd>
+                        </div>
+                        <div>
+                            <dt>Based in</dt>
+                            <dd>Tempe, Arizona · open to relocation &amp; remote</dd>
+                        </div>
+                    </dl>
                 </section>
 
                 <section id="projects">
-                    <div class="section-head"><span class="num">02</span><h2>Projects</h2></div>
+                    <div class="section-head">
+                        <span class="num">02</span><h2>Selected Work</h2>
+                        <span class="count">10 entries · live demos marked</span>
+                    </div>
                     <ul class="manifest">
                         <li class="entry">
                             <span class="idx">01</span>
                             <div class="entry-body">
-                                <div class="entry-title">
-                                    <h3><a href="https://github.com/dheeraj7000/experience-engine" target="_blank">Experience Engine</a></h3>
-                                    <span class="arrow">↗</span>
-                                </div>
-                                <div class="tech">Python · LLM APIs · Continual Learning</div>
+                                <div class="entry-title"><h3>OntoRAG</h3><span class="meta">RAG · <span class="on">Live</span></span></div>
+                                <div class="tech">Python · FastAPI · PyTorch Geometric · React</div>
                                 <p>
-                                    Continual-learning layer that turns agent trajectories into validated, reusable competence —
-                                    not just retrievable memory. Implements a typed experience → skill → policy promotion ladder
-                                    with validation-gated promotion, causal failure diagnosis, and adversarial safety gates.
+                                    Retrieval-augmented generation grounded in a domain ontology. A graph neural network scores
+                                    fact trustworthiness, hallucinations are caught by cross-checking answers against the knowledge
+                                    graph, and every response is explained through provenance visualization. A two-tier LLM router
+                                    (fast / smart / offline fallback) runs the whole stack on free tiers at $0 a month.
                                 </p>
+                                <div class="entry-links">
+                                    <a class="lnk lnk-live" href="https://ontorag.duckdns.org/" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span>Live demo<span class="ext" aria-hidden="true">↗</span></a>
+                                    <a class="lnk" href="https://github.com/dheeraj7000/ontorag" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
 
                         <li class="entry">
                             <span class="idx">02</span>
                             <div class="entry-body">
-                                <div class="entry-title">
-                                    <h3><a href="https://github.com/dheeraj7000/control-plane" target="_blank">Control Plane</a></h3>
-                                    <span class="arrow">↗</span>
-                                </div>
-                                <div class="tech">Go · MCP · Agent Orchestration</div>
+                                <div class="entry-title"><h3>Experience Engine</h3><span class="meta">Agents · <span class="on">Live</span></span></div>
+                                <div class="tech">Python · Continual Learning · LLM Agents</div>
                                 <p>
-                                    Open-source AI agent control plane for managing, securing, observing, and orchestrating
-                                    AI agents across MCP and non-MCP providers.
+                                    A continual-learning layer that turns agent trajectories into validated, reusable competence
+                                    rather than merely retrievable memory. Implements a typed experience → skill → policy promotion
+                                    ladder with validation-gated promotion, causal failure diagnosis, and adversarial safety gates.
+                                    187 tests, all seven design phases complete.
                                 </p>
+                                <div class="entry-links">
+                                    <a class="lnk lnk-live" href="https://dheeraj7000.github.io/experience-engine/" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span>Live demo<span class="ext" aria-hidden="true">↗</span></a>
+                                    <a class="lnk" href="https://github.com/dheeraj7000/experience-engine" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
 
                         <li class="entry">
                             <span class="idx">03</span>
                             <div class="entry-body">
-                                <div class="entry-title">
-                                    <h3><a href="https://github.com/dheeraj7000/dynamic-steering-sycophancy" target="_blank">Dynamic Steering — Sycophancy</a></h3>
-                                    <span class="arrow">↗</span>
-                                </div>
-                                <div class="tech">Python · LLM Evaluation · Behavioral Analysis</div>
+                                <div class="entry-title"><h3>Unified Agent Protocol</h3><span class="meta">Protocol</span></div>
+                                <div class="tech">Python · MCP · A2A · OpenTelemetry</div>
                                 <p>
-                                    Research into dynamic steering mechanisms for measuring and mitigating sycophantic behavior
-                                    in large language models.
+                                    A governance layer over agent infrastructure rather than a replacement for it. UAP wraps MCP
+                                    tools, remote A2A agents, and OpenAPI operations as policy-aware capability cards, adding policy
+                                    enforcement, context budgeting, provenance records, and a typed task lifecycle to whatever stack
+                                    is already in place.
                                 </p>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://github.com/dheeraj7000/unified-agent-protocol" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
 
                         <li class="entry">
                             <span class="idx">04</span>
                             <div class="entry-body">
-                                <div class="entry-title">
-                                    <h3><a href="https://github.com/dheeraj7000/skills" target="_blank">Skills</a></h3>
-                                    <span class="arrow">↗</span>
-                                </div>
-                                <div class="tech">Python · Agent Infrastructure</div>
+                                <div class="entry-title"><h3>Agent Control Plane</h3><span class="meta">Infrastructure</span></div>
+                                <div class="tech">Go · Postgres · NATS · OpenTelemetry</div>
                                 <p>
-                                    Agent skill infrastructure — tooling for defining, validating, and deploying reusable
-                                    competence modules for LLM agents.
+                                    Open-source control plane for managing, securing, observing, and orchestrating AI agents across
+                                    MCP and non-MCP providers. Built around the Execution — a running instance of a Workflow template —
+                                    with an immutable workflow aggregate, cycle detection over the step graph via Kahn's algorithm,
+                                    and a single dependency-injection composition root.
                                 </p>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://github.com/dheeraj7000/control-plane" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
 
                         <li class="entry">
                             <span class="idx">05</span>
                             <div class="entry-body">
-                                <div class="entry-title">
-                                    <h3><a href="https://github.com/dheeraj7000/anyapi" target="_blank">AnyAPI</a></h3>
-                                    <span class="arrow">↗</span>
-                                </div>
-                                <div class="tech">Python · Browser Automation · API Server</div>
+                                <div class="entry-title"><h3>AnyAPI</h3><span class="meta">Infrastructure · <span class="on">Live</span></span></div>
+                                <div class="tech">Python · Playwright · Browser Automation</div>
                                 <p>
-                                    Self-hosted AI API server providing free access to 9 model providers via browser automation.
-                                    Build chatbots, CLIs, and agents without API keys.
+                                    Self-hosted AI API server that brokers access to nine model providers through browser
+                                    automation — build chatbots, CLIs, and agents without holding a single API key.
                                 </p>
+                                <div class="entry-links">
+                                    <a class="lnk lnk-live" href="https://dheeraj7000.github.io/anyapi/" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span>Live site<span class="ext" aria-hidden="true">↗</span></a>
+                                    <a class="lnk" href="https://github.com/dheeraj7000/anyapi" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
 
                         <li class="entry">
                             <span class="idx">06</span>
                             <div class="entry-body">
-                                <div class="entry-title">
-                                    <h3><a href="https://github.com/dheeraj7000/AutoDB-Self-Optimizing-Database-System" target="_blank">AutoDB</a></h3>
-                                    <span class="arrow">↗</span>
-                                </div>
-                                <div class="tech">Python · ML · Database Optimization</div>
+                                <div class="entry-title"><h3>AIUI — AI Design Control Layer</h3><span class="meta">Tooling</span></div>
+                                <div class="tech">TypeScript · MCP · Postgres</div>
                                 <p>
-                                    Self-optimizing database system that uses machine learning to automatically tune
-                                    performance parameters and query execution strategies.
+                                    Control how coding agents build your UI. Style packs, component recipes, and design memory are
+                                    chosen in a visual console and exposed to Claude Code through 18 MCP tools, with
+                                    token-compliance validation run against the generated code.
                                 </p>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://github.com/dheeraj7000/AIUI" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="entry">
+                            <span class="idx">07</span>
+                            <div class="entry-body">
+                                <div class="entry-title"><h3>Web Extractor</h3><span class="meta">Retrieval · <span class="on">Live</span></span></div>
+                                <div class="tech">Python · Focused Crawling · PDF Parsing</div>
+                                <p>
+                                    Phrase-based focused crawler that retrieves pages and PDFs relevant to any input sentence, on any
+                                    domain. Combines multi-level relevance scoring (exact, substring, noun, keyword), depth-limited
+                                    crawling, and context-aware link prioritization.
+                                </p>
+                                <div class="entry-links">
+                                    <a class="lnk lnk-live" href="https://dheeraj7000.github.io/web-extractor/" target="_blank" rel="noopener"><span class="live-dot" aria-hidden="true"></span>Live site<span class="ext" aria-hidden="true">↗</span></a>
+                                    <a class="lnk" href="https://github.com/dheeraj7000/web-extractor" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="entry">
+                            <span class="idx">08</span>
+                            <div class="entry-body">
+                                <div class="entry-title"><h3>ResMem — Research Memory System</h3><span class="meta">Knowledge Graph</span></div>
+                                <div class="tech">Python · FAISS · NetworkX · SQLite FTS5</div>
+                                <p>
+                                    Ingests research PDFs and decomposes them into atomic knowledge units — core methods, evaluation
+                                    strategies, main claims — then deduplicates equivalent concepts with sentence embeddings and links
+                                    them into a typed knowledge graph (supports / evaluates / extends / contradicts) queryable in
+                                    natural language.
+                                </p>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://github.com/dheeraj7000/resmem-A-Research-Memory-System" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="entry">
+                            <span class="idx">09</span>
+                            <div class="entry-body">
+                                <div class="entry-title"><h3>Dynamic Steering of Sycophancy Circuits</h3><span class="meta">Research</span></div>
+                                <div class="tech">Python · Interpretability · Activation Steering</div>
+                                <p>
+                                    Inference-time steering of LLM sycophancy circuits, applying ActAdd through dynamic precision
+                                    routing — an extension of Pandey (2026).
+                                </p>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://github.com/dheeraj7000/dynamic-steering-sycophancy" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="entry">
+                            <span class="idx">10</span>
+                            <div class="entry-body">
+                                <div class="entry-title"><h3>Breaking Apps — AI regression suite vs. dev.to</h3><span class="meta">Testing · Hackathon</span></div>
+                                <div class="tech">TypeScript · Playwright · Passmark</div>
+                                <p>
+                                    Hackathon submission for Breaking Apps (Hashnode × Bug0). Roughly 100 lines of TypeScript, one
+                                    English sentence per assertion, surfaced six real bugs on dev.to — headlined by
+                                    <code>/top/infinity</code> rendering articles in ascending reaction order.
+                                </p>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://github.com/dheeraj7000/breaking-apps-hack" target="_blank" rel="noopener">Source<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
                     </ul>
                 </section>
 
                 <section id="open-source">
-                    <div class="section-head"><span class="num">03</span><h2>Open Source</h2></div>
+                    <div class="section-head">
+                        <span class="num">03</span><h2>Open Source</h2>
+                        <span class="count">2 contributions</span>
+                    </div>
                     <ul class="manifest">
                         <li class="entry">
                             <span class="idx">01</span>
                             <div class="entry-body">
                                 <div class="entry-title">
-                                    <h3>
-                                        <a href="https://github.com/zjunlp/SkillNet/pull/33" target="_blank">SkillNet — ZJUNLP / Zhejiang University NLP Lab</a><span class="tag">Merged</span>
-                                    </h3>
-                                    <span class="arrow">↗</span>
+                                    <h3>SkillNet — ZJUNLP, Zhejiang University NLP Lab</h3><span class="meta"><span class="on">Merged</span></span>
                                 </div>
                                 <p>
                                     Identified and fixed a prompt-injection vulnerability in the LLM-as-judge skill evaluation gate.
-                                    Contributed a static pre-screen module (11 detection rules), nonce-fenced prompt sections,
-                                    and safety-rubric extensions with 26 tests.
+                                    Contributed a static pre-screen module with 11 detection rules, nonce-fenced prompt sections,
+                                    and safety-rubric extensions covered by 26 tests.
                                 </p>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://github.com/zjunlp/SkillNet/pull/33" target="_blank" rel="noopener">Pull request #33<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
                         <li class="entry">
                             <span class="idx">02</span>
                             <div class="entry-body">
-                                <div class="entry-title">
-                                    <h3><a href="https://github.com/gleanwork/remote-mcp-server/pull/9" target="_blank">Glean Remote MCP Server</a></h3>
-                                    <span class="arrow">↗</span>
-                                </div>
+                                <div class="entry-title"><h3>Glean Remote MCP Server</h3><span class="meta">Open PR</span></div>
                                 <p>
-                                    Dual-layer cache with OAuth-partitioned keys and context window optimization
-                                    for the Glean remote MCP server.
+                                    Dual-layer cache with OAuth-partitioned keys plus context-window optimization for Glean's remote
+                                    MCP server.
                                 </p>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://github.com/gleanwork/remote-mcp-server/pull/9" target="_blank" rel="noopener">Pull request #9<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
                     </ul>
                 </section>
 
                 <section id="publications">
-                    <div class="section-head"><span class="num">04</span><h2>Publications</h2></div>
+                    <div class="section-head">
+                        <span class="num">04</span><h2>Publications</h2>
+                        <span class="count">3 papers</span>
+                    </div>
                     <ul class="manifest">
                         <li class="entry">
                             <span class="idx">01</span>
                             <div class="entry-body">
-                                <p style="color: var(--text); font-size: 0.95rem; margin-bottom: 4px;">"SPOQ: Specialist Orchestrated Queuing for Multi-Agent Software Engineering."</p>
+                                <p class="pub-title">“SPOQ: Specialist Orchestrated Queuing for Multi-Agent Software Engineering.”</p>
                                 <span class="pub-authors">Carbowitz, R., Kumar, D. (2026)</span>
-                                <a class="pub-link" href="https://arxiv.org/abs/2606.03115">arXiv:2606.03115</a>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://arxiv.org/abs/2606.03115" target="_blank" rel="noopener">arXiv:2606.03115<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
                         <li class="entry">
                             <span class="idx">02</span>
                             <div class="entry-body">
-                                <p style="color: var(--text); font-size: 0.95rem; margin-bottom: 4px;">"Ontology Engineering for Trustworthy AI: A Production-Grounded Survey of Knowledge Graphs in the LLM Era."</p>
+                                <p class="pub-title">“Ontology Engineering for Trustworthy AI: A Production-Grounded Survey of Knowledge Graphs in the LLM Era.”</p>
                                 <span class="pub-authors">Kumar, D., Rana, V.</span>
-                                <a class="pub-link" href="https://doi.org/10.13140/RG.2.2.29422.16965">DOI: 10.13140/RG.2.2.29422.16965</a>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://doi.org/10.13140/RG.2.2.29422.16965" target="_blank" rel="noopener">DOI 10.13140/RG.2.2.29422.16965<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
                         <li class="entry">
                             <span class="idx">03</span>
                             <div class="entry-body">
-                                <p style="color: var(--text); font-size: 0.95rem; margin-bottom: 4px;">"GCAF-Net: Gated Cross-Attention Fusion for Efficient Robotic Vision-Language Reasoning."</p>
+                                <p class="pub-title">“GCAF-Net: Gated Cross-Attention Fusion for Efficient Robotic Vision-Language Reasoning.”</p>
                                 <span class="pub-authors">Kumar, D.</span>
-                                <a class="pub-link" href="https://doi.org/10.13140/RG.2.2.12906.38089">DOI: 10.13140/RG.2.2.12906.38089</a>
+                                <div class="entry-links">
+                                    <a class="lnk" href="https://doi.org/10.13140/RG.2.2.12906.38089" target="_blank" rel="noopener">DOI 10.13140/RG.2.2.12906.38089<span class="ext" aria-hidden="true">↗</span></a>
+                                    <a class="lnk" href="https://openreview.net/pdf?id=ftZZPhS9xY" target="_blank" rel="noopener">Paper PDF<span class="ext" aria-hidden="true">↗</span></a>
+                                    <a class="lnk" href="https://github.com/dheeraj7000/mfm-robotic-instruction-learning" target="_blank" rel="noopener">Code<span class="ext" aria-hidden="true">↗</span></a>
+                                </div>
                             </div>
                         </li>
                     </ul>
@@ -668,8 +857,8 @@
                     <p>Dheeraj Kumar · Tempe, AZ · 2026</p>
                     <div class="footer-links">
                         <a href="mailto:dkumar70@asu.edu">dkumar70@asu.edu</a>
-                        <a href="https://github.com/dheeraj7000" target="_blank">GitHub</a>
-                        <a href="https://linkedin.com/in/dheeraj-k-232a6a235" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/dheeraj7000" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://linkedin.com/in/dheeraj-k-232a6a235" target="_blank" rel="noopener">LinkedIn</a>
                     </div>
                 </div>
             </footer>
@@ -683,20 +872,36 @@
                 .map(function (a) { return document.querySelector(a.getAttribute('href')); })
                 .filter(Boolean);
 
-            if (!('IntersectionObserver' in window) || !sections.length) return;
+            if (!('IntersectionObserver' in window) || sections.length !== links.length) return;
+
+            var ratios = new Array(sections.length).fill(0);
+
+            function setActive() {
+                var best = -1, bestRatio = 0;
+                for (var i = 0; i < ratios.length; i++) {
+                    if (ratios[i] > bestRatio) { bestRatio = ratios[i]; best = i; }
+                }
+                // Near the bottom of the page the last section wins, even if barely visible.
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 4) {
+                    best = sections.length - 1;
+                }
+                links.forEach(function (l, i) {
+                    if (i === best) { l.setAttribute('aria-current', 'true'); }
+                    else { l.removeAttribute('aria-current'); }
+                });
+            }
 
             var observer = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
-                    var link = links[sections.indexOf(entry.target)];
-                    if (!link) return;
-                    if (entry.isIntersecting) {
-                        links.forEach(function (l) { l.classList.remove('is-active'); });
-                        link.classList.add('is-active');
-                    }
+                    var i = sections.indexOf(entry.target);
+                    if (i > -1) { ratios[i] = entry.isIntersecting ? entry.intersectionRatio : 0; }
                 });
-            }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+                setActive();
+            }, { threshold: [0, 0.05, 0.15, 0.3, 0.5, 0.75, 1] });
 
             sections.forEach(function (s) { observer.observe(s); });
+            window.addEventListener('scroll', setActive, { passive: true });
+            setActive();
         })();
     </script>
 </body>
